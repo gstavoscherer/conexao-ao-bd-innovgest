@@ -1,6 +1,9 @@
 <?php
+session_start();
+
 include_once("./config/config.php");
 
+$mensagem = "";
 // Verifique se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifique se os campos do formulário foram enviados corretamente
@@ -33,8 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(":email", $email);
             $stmt->bindParam(":senha", $hashedPassword);
             $stmt->execute();
+            
+            $mensagem = "Usuário registrado com sucesso!";
+
+            $_SESSION['mensagem'] = $mensagem;
 
             header("Location: login.php");
+            exit();
+
         } catch (PDOException $e) {
             echo "Erro ao inserir usuário: " . $e->getMessage();
         }
@@ -68,12 +77,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div id="div03header">
-            <div>
                 <button id="botaoDiv3"><img onclick="abrirPainel()" src="imagens/user.png" id="imgUser"></img></button>
-            </div>
-            <div>
+           
+            
                 <a href="config.html"><img src="imagens/config.png" id="configImg"></a>
-            </div>
+            
         </div>
     </header>
     <main>

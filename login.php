@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,6 +13,16 @@
 </head>
 
 <body>
+    <?php
+    // Verifica se há uma mensagem na sessão
+    if (isset($_SESSION['mensagem'])) {
+        $mensagem = $_SESSION['mensagem'];
+        echo "<p>{$mensagem}</p>";
+
+        // Remove a mensagem da sessão para não exibi-la novamente
+        unset($_SESSION['mensagem']);
+    }
+    ?>
     <header>
         <div id="div01header">
             <nav>
@@ -56,6 +68,7 @@
                         <div id="loginEntrar">
                             <img src="imagens/logobarb.jpg">
                         </div>
+                        
                         <div id="loginEmail">
                             <input type="text" id="email" name="email" placeholder="E-mail">
 
