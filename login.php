@@ -13,16 +13,7 @@ session_start();
 </head>
 
 <body>
-    <?php
-    // Verifica se há uma mensagem na sessão
-    if (isset($_SESSION['mensagem'])) {
-        $mensagem = $_SESSION['mensagem'];
-        echo "<p>{$mensagem}</p>";
-
-        // Remove a mensagem da sessão para não exibi-la novamente
-        unset($_SESSION['mensagem']);
-    }
-    ?>
+    
     <header>
         <div id="div01header">
             <nav>
@@ -68,7 +59,16 @@ session_start();
                         <div id="loginEntrar">
                             <img src="imagens/logobarb.jpg">
                         </div>
-                        
+                        <?php
+    // Verifica se há uma mensagem na sessão
+    if (isset($_SESSION['mensagem'])) {
+        $mensagem = $_SESSION['mensagem'];
+        echo "<p>{$mensagem}</p>";
+
+        // Remove a mensagem da sessão para não exibi-la novamente
+        unset($_SESSION['mensagem']);
+    }
+    ?>
                         <div id="loginEmail">
                             <input type="text" id="email" name="email" placeholder="E-mail">
 

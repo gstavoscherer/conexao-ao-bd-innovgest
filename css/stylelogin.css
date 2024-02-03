@@ -158,7 +158,11 @@ main>div#container>div#aba>div#abareal>img {
     display: flex;
     flex-direction: column;
 }
-
+#mensagemCriada{
+    font-weight: bold;
+    color: black;
+    margin-bottom: 3px;
+}
 #loginNome {
     border: 2px rgb(197, 197, 197) solid;
     background-color: rgb(235, 233, 233);
